@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/addCgi/addCgi",
+    "pages/backStage/backStage",
+    "pages/applyAgent/applyAgent",
+    "pages/agentStage/agentStage"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "大爱水果",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}

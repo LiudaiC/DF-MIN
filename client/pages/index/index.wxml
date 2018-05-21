@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="container">
+ <!-- <image src='{{qrCode}}'></image> -->
+  <view class='df-products' wx:for="{{products}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    <image
+          class="df-image"
+          src="{{item.image}}"
+          data-url="{{item.image}}"
+          mode="aspectFit"
+          bindtap="previewImg"
+      ></image>
+    <view class='df-product-detail'>
+      <view class='df-product-name'><text>{{item.name}}</text></view>
+       <view><text></text>￥{{item.agentPrice || item.unitPrice}}</view> 
+      <view><text>{{item.description}}</text></view>
+      <view class='df-oper-group'>
+        <text data-id="{{index}}-minus" bindtap='operateProd'>
+          <text class='df-oper df-minus' wx:if="{{goods[index].quantity > 0}}">-</text></text>
+        <text class='df-oper-quantity' wx:if="{{goods[index].quantity > 0}}">{{goods[index].quantity}}</text>
+        <text class='df-oper df-plus' data-id="{{index}}-plus" bindtap='operateProd'>+</text>
+        </view>
+    </view>
+  </view>
+
+<view class='df-cart-bottom' wx:if="{{total.quantity > 0}}">
+  <text class='cart-bottom-left'>共{{total.quantity}}份，总计<text>￥{{total.amount}}</text></text>
+  <text class='cart-bottom-right' bindtap='showCart'>去结算</text>
+</view>
+<view class='df-menu-bottom' style="display:{{isAgent || isAdmin ? 'block' : 'none'}}">
+  <text bindtap='openProduct' class='df-agent-bottom'>商品列表</text>
+  <text bindtap='backStage' class='df-agent-bottom'>后台管理</text>
+</view>
+<view class='df-menu-bottom' style="display:{{!isAgent && !isAdmin ? 'block' : 'none'}}">
+  <text bindtap='applyAgent'>申请成为代理</text>
+</view>
+
+<view style="display:{{cartDisplay}}" class='df-cart-backdrop'>
+  <view class='df-cart-body'>
+  <view class='df-cart-close'><text bindtap='closeCart'>+</text></view>
+    <view wx:for="{{orderLines}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class='df-cart-item'>
+      <text>{{item.name}}</text>
+      <text class='df-cart-right'>
+      <text class='df-oper-quantity'>{{item.quantity}}份</text>
+      <text class='df-cart-price'>￥{{item.quantity * item.price}}</text>
+      <!-- <text id="{{item.pid}}-minus"class='df-oper df-minus'>-</text> -->
+      <!-- <text class='df-oper df-plus' id="{{item.pid}}-plus">+</text> -->
+      </text>
+    </view>
+    <view class='df-cart-address' style="display:{{setAddress == 'none'?'block':'none'}}">
+    <view>收件人:</view>
+    <view class='df-address-detail'>{{address.userName}}</view>
+    <view>联系电话: </view>
+    <view class='df-address-detail'>{{address.telNumber}}</view>
+    <view>地址: </view>
+    <view class='df-address-detail'>{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}</view>
+    <view>邮编: </view>
+    <view class='df-address-detail'>{{address.postalCode}}</view>
+    </view>
+    <view class='df-cart-btn-group'>
+    <view><button bindtap='addAddress'>{{setAddress == 'none'?'修改':'添加'}}收货地址</button></view>
+    <view style="display:{{setAddress == 'none'?'block':'none'}}"><button bindtap='createOrder'>确认下单</button></view>
+    </view>
+  </view>
+</view>
+
+</view>

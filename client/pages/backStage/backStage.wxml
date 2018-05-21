@@ -1,0 +1,78 @@
+<!--pages/addProduct.wxml-->
+<view class='btn-group'>
+  <text bindtap='changeType' data-type="1" class="{{manageType == 1 && 'active'}}">商品</text>
+  <text bindtap='changeType' data-type="2" class="{{manageType == 2 && 'active'}}">代理</text> 
+  <text bindtap='changeType' data-type="3" class="{{manageType == 3 && 'active'}}">提成</text>
+</view>
+
+<!-- 上传图片 -->
+  <view wx:if="{{manageType == 1}}" class="uploader">
+      <view class="uploader-text" bindtap="doUpload">
+          <text>上传图片</text>
+      </view>
+      <form bindsubmit='productSubmit' id='productForm'>
+        <view class="uploader-container" wx:for="{{images}}"
+         wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+            <image
+                class="uploader-image"
+                src="{{item}}"
+                data-url="{{item}}"
+                mode="aspectFit"
+                bindtap="previewImg"
+            ></image>
+          <view class='df-product-detail'>
+            <view><text>名称：</text><input name='name-{{index}}' class='df-new'></input></view>
+            <view><text>价格：</text><input name='unitPrice-{{index}}' class='df-new'></input></view>
+            <view><text>描述：</text><input name='description-{{index}}' class='df-new'></input>
+            <view>
+              <input type='hidden' value='{{item}}' name='img-{{index}}' style='display:none;'></input></view>
+            </view>
+          </view>
+        </view>
+        <view class="btn-area">
+          <button formType="submit">保存</button>
+        </view>
+      </form>
+  </view>
+  <view class='df-products' wx:for="{{products}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    
+    <!-- <image class="df-image" src="{{item.image}}" mode="aspectFit"></image> -->
+    <form bindsubmit='updateProd'>
+    <view class='df-product-detail'>
+      <view class='df-product-name'>名称：<input value="{{item.name}}" name="fruit_name"></input></view>
+      <view><text>价格：</text><input value='{{item.unitPrice}}' name="unit_price"></input></view> 
+      <view><text>描述：</text><input value='{{item.description}}' name="description"></input></view>
+      <input style="display:none" name="id" value="{{item.id}}"></input>
+    </view>
+    <view class='df-detail-btn'><button class='delete' bindtap='deleteProd'data-pid='{{item.id}}'>删除</button><button formType='submit'>保存</button></view>
+    </form>
+    <!-- <view class='df-edit-prod-btn'>
+      <button bindtap='deleteProd' class='df-delete-prod'>删除</button>
+      <button formType="submit" class='df-edit-prod'>保存</button>
+    </view> -->
+  </view> 
+
+
+  <view wx:if="{{manageType == 2}}" class='df-agent'>
+  <view class="df-agent-block">
+  <view class="df-agent-item title"><text class="df-agent-name">代理人</text><text class="df-agent-perf">代理业绩</text><text class="df-agent-deduct">提成</text></view> 
+  <view wx:for="{{agents}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class='df-agent-item'>
+     <view><text class="df-agent-name">{{item.nick_name}}</text><text class="df-agent-perf">￥{{item.totalAmount||0}}(共{{item.totalQuantity||0}}单)</text><text class="df-agent-deduct">￥{{item.deduct}}</text></view> 
+  </view>
+  </view>
+  </view>
+
+  <view wx:if="{{manageType == 3}}" class='df-rate'>
+    <view>
+      <text class='df-rate-from'>月单量</text>
+      
+      <text class='df-rate-number'>比例</text>
+    </view>
+    <form id="df-rate" bindsubmit='rateSubmit'>
+      <view wx:for="{{rates}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+        <input class='df-rate-from' name="fromLevel-{{index}}" value="{{item.rate_level}}"></input>:
+        <input class='df-rate-number' name="rateLevel-{{index}}" value="{{item.rate}}"></input>
+      </view>
+      <button formType="submit">保存</button>
+    </form>
+  </view>

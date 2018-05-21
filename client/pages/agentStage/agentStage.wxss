@@ -1,0 +1,149 @@
+/* pages/agentStage/agentStage.wxss */
+
+text {
+  display: inline-block;
+  font-size: 14px;
+}
+
+.df-agent-info {
+    margin-top: 40rpx;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-left: none;
+    border-right: none;
+    flex-direction: row;
+    align-items: center;
+    transition: all 300ms ease;
+}
+
+.df-userinfo-avatar {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.df-userinfo-nickname {
+    font-size: 32rpx;
+    color: #007AFF;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.df-agent-info .df-userinfo-tip {
+  width:100%;
+  height: 60px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.df-agent-info .df-userinfo-tip text{
+  color: red;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+.df-userinfo-rate {
+  width:280px;
+  height:5px;
+  background:#eee;
+  display: inline-block;
+  position: relative;
+  }
+  .df-userinfo-rate .inner {
+  height:5px;
+  background:red;
+  }
+  .df-userinfo-rate .inner text {
+    position: absolute;
+    top: 8px;
+    left: 110px;
+  }
+.df-agent-tap {
+  height: 40px;
+  margin-top: -2px;
+  line-height: 40px;
+  background: #eee;
+}
+
+.df-agent-tap text {
+  width: 50%;
+  text-align: center;
+}
+
+.df-agent-tap text.active {
+  background: #fff;
+}
+
+.df-agent-summary, .df-agent-team {
+  margin: 20px 0;
+  padding: 4px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.df-agent-summary view, .df-agent-team view {
+  margin-bottom: 8px;
+}
+
+.df-agent-summary .df-summary-title text, .df-agent-team .df-team-title text{
+  width: 33.3%;
+}
+
+.df-agent-summary .df-summary-list text, .df-agent-team .df-team-list text{
+  width: 33%;
+  font-size: 14px;
+}
+
+.df-agent-summary .df-summary-fetch, .df-agent-team .df-team-fetch {
+  text-align: center;
+  color: #007AFF;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  height: 28px;
+  line-height: 28px;
+}
+
+.section {
+  margin:20px;
+  text-align: center;
+}
+.section text {
+  margin: 0 10px;
+  font-size: 14px;
+}
+.df-date {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  vertical-align: middle;  
+}
+.df-date button {
+  font-size: 14px;
+  line-height: 2;
+  margin-left: 10px;
+  background: #29e;
+  color: #fff;
+}
+picker {
+  border: 1px solid #eee;
+  padding: 0 4px;
+}
+
+.df-products {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+input {
+  display: inline-block;
+  border: 1px solid #eee;
+  padding: 4px;
+  height: 14px;
+  font-size: 14px;
+  vertical-align: middle;
+}
+.df-products button {
+  margin-top: 20px;
+}

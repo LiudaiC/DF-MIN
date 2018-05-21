@@ -1,0 +1,72 @@
+<!--pages/agentStage/agentStage.wxml-->
+<view class="df-agent-info">
+    <image
+        class="df-userinfo-avatar"
+        src="{{userInfo.avatarUrl}}"
+        background-size="cover"
+    ></image>
+    <view class="df-userinfo-nickname">{{userInfo.nickName}}</view>
+    <view class="df-userinfo-tip"><text>{{page.pDeduct.rateFrom}}%</text><view class="df-userinfo-rate">
+    <view class="inner" style='width:{{page.pDeduct.rate}}'><text style="color:#000;">提成比例</text></view></view><text>{{page.pDeduct.rateTo}}%</text></view>
+</view>
+<view class='df-agent-tap'>
+<text bindtap='changeTap' data-type="1"class="{{viewType == 1 && 'active'}}">查看数据</text><text bindtap='changeTap' data-type="2"class="{{viewType == 2 && 'active'}}">设置代理价</text>
+</view>
+
+<view style="display:{{viewType == 1?'block':'none'}}">
+  <view class="section">
+    <picker class='df-date' mode="date" value="{{startDate}}" id="startDate" start="2017-06-01" end="{{today}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{startDate}}
+      </view>
+    </picker><text>~</text>
+    <picker class='df-date' mode="date" value="{{endDate}}" id="endDate" start="2017-06-01" end="{{today}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{endDate}}
+      </view>
+    </picker>
+    <view class='df-date'><button bindtap='queryInfo'>查询</button></view>
+  </view>
+  <view class='df-agent-summary'>
+    <view class='df-summary-title'><text>单量</text><text>销售额</text><text>提成</text></view>
+    <view class='df-summary-title'><text>{{page.pQuantity || 0}}</text>
+    <text>￥{{page.pAmount || 0}}</text>
+    <text>￥{{ page.pDeduct.amount || 0}}</text></view>
+    <view class='df-summary-fetch' bindtap='getSelfOrders' wx:if="{{page.pQuantity > 0}}"><text>{{showSummary?'收起':'显示'}}个人详细数据</text></view>
+    <view class='df-summary-list' style="display:{{showSummary?'block':'none'}}"><text>名称</text><text>数量</text><text>金额</text></view>
+    <view class='df-summary-list' wx:for="{{selfList}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" style="display:{{showSummary?'block':'none'}}">
+      <text>{{item.fruit_name}}</text>
+      <text>{{item.quantity}}</text>
+      <text>￥{{item.quantity*item.real_price}}</text>
+    </view>
+  </view>
+
+  <view class='df-agent-team'>
+    <view class='df-team-title'><text>团员单量</text><text>团员销售额</text></view>
+    <view class='df-team-title'><text>{{page.cQuantity || 0}}</text><text>￥{{page.cAmount || 0}}</text></view>
+    <view class='df-team-fetch' bindtap='getTeamOrders' wx:if="{{page.teamTotal > 0}}"><text>{{showTeam?'收起':'显示'}}团员详细数据</text></view>
+    <view class='df-team-list' style="display:{{showTeam?'block':'none'}}"><text>名称</text><text>数量</text><text>金额</text><text>时间</text></view>
+    <view class='df-team-list' wx:for="{{page.teamList}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" style="display:{{showTeam?'block':'none'}}">
+      <text>{{item.prod_name}}</text>
+      <text>{{item.quantity}}</text>
+      <text>￥{{item.sum_price}}</text>
+      <text>{{item.date_time}}</text>
+    </view>
+  </view>
+</view>
+<view style="display:{{viewType == 2?'block':'none'}}">
+  <view class='df-products' wx:for="{{products}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+    <!-- <image class="df-image" src="{{item.image}}" mode="aspectFit"></image> -->
+    <form bindsubmit='updateProd'>
+    <view class='df-product-detail'>
+      <view class='df-product-name'><text>名称：{{item.name}}</text></view>
+      <view><text>描述：{{item.description}}</text></view>
+      <view><text>代理价：￥{{item.unitPrice}}</text></view> 
+      <view><text>自定义价格：</text>￥<input name="agentPrice" value="{{item.agentPrice || item.unitPrice}}"></input></view> 
+      <input style="display:none" name="id" value="{{item.id}}"></input>
+      <input style="display:none" name="originPrice" value="{{item.unitPrice}}"></input>
+    </view>
+    <view class='df-detail-btn'><button formType='submit'>修改价格</button></view>
+    </form>
+  </view> 
+</view>

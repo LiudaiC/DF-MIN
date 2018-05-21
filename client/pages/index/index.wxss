@@ -1,0 +1,179 @@
+/**index.wxss**/
+page {
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 14px;
+}
+text {
+  display: inline-block;
+}
+ .df-products {
+    width: 100%;
+    height: 280rpx;
+    padding: 20rpx 20rpx 20rpx 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background: white;    
+}
+
+.df-image {
+    height: 240rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.df-text-block input {
+  border: 1px solid #eee;
+}
+
+.df-product-detail {
+  width: 600rpx;
+  position: relative;
+}
+.df-product-detail view {
+  margin: 10rpx 0;
+}
+.df-product-name {
+  font-weight: bold;
+}
+.btn-area button{
+  box-shadow: 0 1px 2px;
+  margin: 4px 0;
+}
+
+.df-oper-group {
+  position: absolute;
+  right: 15rpx;
+  bottom: 15rpx;
+  padding: 0 20rpx;
+}
+
+.df-oper-quantity {
+  margin: 0 8px;
+  text-align: center;
+}
+
+.df-oper {
+  border-radius: 50%;
+  border: 1px solid #eee;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  display:inline-block;
+  text-align:center;
+}
+
+.df-oper.df-plus {
+  background: #ffd151;
+}
+
+.df-cart-bottom {
+  width: 100%;
+  height: 40px;
+  background: #000;
+  position: fixed;
+  bottom: 40px;
+  line-height: 40px;
+  color: white;
+}
+.df-cart-bottom .cart-bottom-left {
+  float: left;
+  margin-left: 8px;
+}
+.df-cart-bottom .cart-bottom-right {
+  background: #ffd151;
+  float: right;
+  padding: 0 8px;
+}
+
+.df-menu-bottom {
+  background: white;
+  position: fixed;
+  bottom: 0px;
+  border-top: 1px solid #eee;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+}
+.df-menu-bottom {
+  text-align: center;  
+}
+.df-menu-bottom .df-agent-bottom {
+  width: 50%;
+  display: inline-block;
+}
+
+.df-cart-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 111;
+}
+
+.df-cart-body {
+  width: 600rpx;
+  position: absolute;
+  left: 68rpx;
+  top: 20px;
+  background: white;
+  z-index: 222;
+  padding: 8px;
+  border-radius: 2px;
+}
+.df-cart-close {
+  position: relative;
+}
+.df-cart-close text {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  height: 20px;
+  font-size: 22px;
+  transform: rotate(45deg);
+  line-height: 18px;
+  width: 20px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  text-align: center;
+  font-family: Yahei;
+}
+
+.df-cart-body .df-cart-item {
+  height: 36px;
+  line-height: 36px;
+  border-bottom: 1px solid #eee;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.df-cart-body .df-cart-item .df-cart-price{
+  margin-right: 18px;
+}
+.df-cart-body .df-cart-item .df-cart-right {
+  float: right;
+  margin-right: 8px;
+}
+.df-cart-address {
+  margin-top: 10px;
+}
+.df-cart-address view {
+  padding: 4px 0;
+}
+.df-cart-address .df-address-detail {
+  border-bottom: 1px solid #eee;
+}
+.df-cart-btn-group {
+  margin-top: 8px;
+}
+.df-cart-btn-group button {
+  margin-bottom: 8px;
+}

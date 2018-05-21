@@ -1,0 +1,23 @@
+<!--pages/applyAgent.wxml-->
+<view class='df-apply-title'>代理申请表</view>
+<form bindsubmit='applyAgent'>
+<view>
+<text>姓名：</text>
+<input name="agentName" placeholder='请输入姓名' required='true'></input>
+</view>
+<view>
+<text>联系电话：</text>
+<input name="agentPhone" placeholder='请输入电话' required='true'></input>
+</view>
+<view>
+<text>发件人：</text>
+<input name="senderName" placeholder='请输入发件人姓名'></input>
+</view>
+<view>
+<text>发件人联系电话：</text>
+<input name="senderPhone" placeholder='请输入发件人电话'></input>
+</view>
+<view>
+  <button formType='submit'>保存</button>
+</view>
+</form>

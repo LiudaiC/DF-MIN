@@ -1,0 +1,230 @@
+/* pages/addProduct.wxss */
+page {
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 14px;
+}
+text {
+  display: inline-block;
+}
+button {
+  font-size: 14px;
+}
+.btn-group {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #eee;
+}
+
+.btn-group text {
+  text-align: center;
+  display: inline-block;
+  width: 33%;
+}
+
+.btn-group text.active {
+  background: white;
+}
+
+.btn-group text+text {
+  border-left: 1px solid #eee;
+}
+
+.uploader {
+    background: white;
+    height: auto;
+    padding: 0 10rpx 0 10rpx;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.uploader-text  {
+    width: 100%;
+    line-height: 52px;
+    font-size: 34rpx;
+    color: #007AFF;
+}
+
+form {
+  width: 100%;
+}
+.uploader-container {
+    width: 100%;
+    height: 280rpx;
+    padding: 20rpx 20rpx 20rpx 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    
+}
+.uploader-image {
+    height: 240rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+.df-text-block {
+  display: inline-block;
+  padding: 20rpx;
+  font-size: 14px;
+  margin: 4px 0;
+  vertical-align: middle;
+}
+ .df-products {
+    width: 100%;
+    height: 280rpx;
+    padding: 20rpx 20rpx 20rpx 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    background: white;
+    position: relative;
+}
+
+.df-image {
+    height: 240rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.df-text-block input {
+  border: 1px solid #eee;
+}
+form {
+  text-align: center;
+}
+.df-product-detail {
+  width: 400rpx;
+  position: relative;
+  display: inline-block;
+}
+.df-product-detail view {
+  margin: 10rpx 0;
+}
+.df-product-detail input {
+  margin: 0;
+  vertical-align:middle;
+  width:120px;
+  display:inline-block;
+  text-align: left;
+  padding: 0 4px;
+
+}
+.df-product-detail input.df-new {
+  width: 60px;
+}
+.df-detail-btn {
+  width: 60px;
+  display: inline-block;
+  margin: 10px;
+}
+.df-detail-btn button {
+  margin-bottom: 5px;
+}
+.df-detail-btn button.delete {
+  background: red;
+  color: #fff;
+}
+.df-product-name {
+  font-weight: bold;
+}
+.df-oper-group {
+  position: absolute;
+  right: 15rpx;
+  bottom: 15rpx;
+  padding: 0 20rpx;
+}
+.df-edit-prod-btn {
+  text-align: center;
+  position: absolute;
+  top: 120px;
+  width: 100%;
+}
+.df-edit-prod-btn button {
+  display: inline-block;
+  width: 30%;
+}
+
+
+.df-oper-quantity {
+  margin: 0 8px;
+  text-align: center;
+}
+
+
+.df-agent, .df-rate {
+  background: white;
+  padding: 8px;
+}
+
+.agent-btn button {
+  display:inline-block;
+  width:300rpx;
+  margin:0 10px;
+}
+
+.agent-btn button.btn-confirm {
+  background: #29e;
+  height: 36px;
+  line-height: 36px;
+  color: white;
+}
+.df-agent-block {
+  margin-top: 16px;
+}
+.df-agent-item {
+  height: 32px;
+  line-height: 32px;
+  border-top: 1px solid #eee;  
+}
+.df-agent-item.title {
+  font-weight: bold;
+}
+.df-agent-item .df-agent-name {
+  width: 40%;
+}
+
+.df-agent-item .df-agent-perf {
+  width: 40%;
+}
+
+.df-agent-item .df-agent-deduct {
+  width: 20%;
+}
+
+.df-stage-products input {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border: 1px solid #eee;
+  height: 28px;
+  line-height: 28px;
+  margin: 8px 0;
+  padding: 4px;
+  vertical-align: middle;
+}
+.df-rate {
+  text-align: center;
+}
+.df-rate .df-rate-from, .df-rate .df-rate-to{
+  margin: 8px 4px; 
+  display: inline-block;
+  width: 215rpx;
+}
+.df-rate .df-rate-number {
+  width: 120rpx;
+  display: inline-block;
+}
+.df-rate text.df-rate-from, .df-rate text.df-rate-to{
+  width: 275rpx;
+}
